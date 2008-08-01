@@ -25,7 +25,7 @@
 
 *SMOG Index*
 {{{
-(1.043 * sqrt(($this->words_with_three_syllables($strText) * (30 / sentence_count)) + 3.1291))
+(1.043 * sqrt((long_word_count * (30 / sentence_count)) + 3.1291))
 }}}
 
 *Automated Readability Index*
