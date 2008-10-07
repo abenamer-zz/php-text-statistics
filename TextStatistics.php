@@ -146,6 +146,12 @@
          * @param   strText      Text to be transformed
          */
         protected function clean_text($strText) {
+            // all these tags should be preceeded by a full stop. 
+            $fullStopTags = array('li', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'dd');
+            foreach ($fullStopTags as $tag) {
+                $strText = str_ireplace('</'.$tag.'>', '.', $strText);
+            }
+            $strText = strip_tags($strText);
             $strText = preg_replace('/[,:;()-]/', ' ', $strText); // Replace commans, hyphens etc (count them as spaces)
             $strText = preg_replace('/[\.!?]/', '.', $strText); // Unify terminators
             $strText = trim($strText) . '.'; // Add final terminator, just in case it's missing.
@@ -317,7 +323,9 @@
                 ,'forever' => 3
                 ,'shoreline' => 2
             );
-            $intSyllableCount = $arrProblemWords[$strWord];
+            if (isset($arrProblemWords[$strWord])) {
+            	$intSyllableCount = $arrProblemWords[$strWord];
+            }
             if ($intSyllableCount > 0) { 
                 return $intSyllableCount;
             }
