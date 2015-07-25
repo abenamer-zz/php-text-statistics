@@ -1,0 +1,31 @@
+## Readability Formulae in Pesudo-Code ##
+
+**Flesch-Kincaid Reading Ease**
+```
+(206.835 - (1.015 * (word_count / sentence_count)) - (84.6 * (syllable_count / word_count)))
+```
+
+**Flesch-Kincaid Grade Level**
+```
+((0.39 * (word_count / sentence_count)) + (11.8 * (syllable_count / word_count)) - 15.59)
+```
+
+**Gunning-Fog Score**
+```
+(((word_count / sentence_count) + (100 * (long_word_count / word_count ))) * 0.4)
+```
+
+**Coleman-Liau Index**
+```
+((5.89 * (letter_count / word_count)) - (0.3 * (sentence_count / word_count)) - 15.8)
+```
+
+**SMOG Index**
+```
+(1.043 * sqrt((long_word_count * (30 / sentence_count)) + 3.1291))
+```
+
+**Automated Readability Index**
+```
+((4.71 * (letter_count / word_count)) + (0.5 * (word_count / sentence_count)) - 21.43)
+```
